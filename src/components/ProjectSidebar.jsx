@@ -17,7 +17,7 @@ function ProjectSidebar({
         <ul className="mt-8">
           {projects &&
             projects.map((project) => {
-              const cssClasses =
+              let cssClasses =
                 "w-full text-left px-2 py-1 rounded-sm my-1 tex-stone-400 hover:text-stone-200 hover:bg-stone-800";
               if (project.id === currentProjectId) {
                 cssClasses += " bg-stone-800 text-stone-200";

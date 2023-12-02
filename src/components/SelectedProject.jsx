@@ -1,6 +1,7 @@
 import Button from "./Button";
+import Tasks from "./Tasks";
 
-function SelectedProject({ project }) {
+function SelectedProject({ project, onDelete, addTask, taskList, deleteTask }) {
   const formattedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
     year: "numeric",
     month: "short",
@@ -13,7 +14,10 @@ function SelectedProject({ project }) {
           <h1 className="text-3xl font-bold text-stone-600 mb-2">
             {project.title}
           </h1>
-          <button className="text-stone-600 hover:text-stone-950">
+          <button
+            className="text-stone-600 hover:text-stone-950"
+            onClick={onDelete}
+          >
             Delete
           </button>
         </article>
@@ -22,7 +26,7 @@ function SelectedProject({ project }) {
           {project.description}
         </p>
       </header>
-      Task
+      <Tasks addTask={addTask} taskList={taskList} deleteTask={deleteTask} />
     </div>
   );
 }
